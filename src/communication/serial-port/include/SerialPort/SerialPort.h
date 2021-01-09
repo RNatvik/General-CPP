@@ -21,13 +21,13 @@ class SerialPort {
     const char* _com_port;
 
     public:
-    SerialPort(const char* com_port, long baud_rate);
+    SerialPort(const char* com_port, unsigned long baud_rate);
     void open();
     void close();
     bool connected();
-    short available();
-    void readBytes(uint8_t* buffer, short n);
-    void writeBytes(uint8_t* buffer, short n);
+    unsigned short available();
+    void readBytes(uint8_t* buffer, unsigned short n);
+    void writeBytes(uint8_t* buffer, unsigned short n);
 };
 
 #endif

@@ -4,7 +4,7 @@
 #include <asio/serial_port.hpp>
 
 
-SerialPort::SerialPort(const char* com_port, long baud_rate):
+SerialPort::SerialPort(const char* com_port, unsigned long baud_rate):
     _io(),
     _port(_io),
     _baud(baud_rate),
@@ -34,7 +34,7 @@ bool SerialPort::connected() {
     return _port.is_open();
 }
 
-short SerialPort::available() {
+unsigned short SerialPort::available() {
     int value = 0;
     asio::error::get_system_category();
     ::GetLastError();
@@ -46,10 +46,10 @@ short SerialPort::available() {
     return value;
 }
 
-void SerialPort::readBytes(uint8_t* buffer, short n) {
+void SerialPort::readBytes(uint8_t* buffer, unsigned short n) {
     asio::read(_port, asio::buffer(buffer, n));
 }
 
-void SerialPort::writeBytes(uint8_t* buffer, short n) {
+void SerialPort::writeBytes(uint8_t* buffer, unsigned short n) {
     asio::write(_port, asio::buffer(buffer, n));
 }
