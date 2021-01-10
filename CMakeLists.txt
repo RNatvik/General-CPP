@@ -7,5 +7,6 @@ SET(EXP_LIB ${EXP_SRC}/lib)
 SET(CMAKE_INSTALL_PREFIX ${EXP_SRC})
 
 add_subdirectory(src/data-structures)
+add_subdirectory(src/timing)
 add_subdirectory(src/communication)
 add_subdirectory(src/regulation)
